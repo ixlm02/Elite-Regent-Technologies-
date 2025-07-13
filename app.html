@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Regent Technologies - App Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Darker, sophisticated gradient background */
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem; /* Adjusted for overall responsiveness, smaller on mobile */
+            color: #e0e0e0; /* Light text for contrast */
+            line-height: 1.7; /* Enhanced readability */
+        }
+        @media (min-width: 768px) { /* Apply larger padding for medium screens and up */
+            body {
+                padding: 3rem;
+            }
+        }
+        .translucent-card {
+            background-color: rgba(35, 35, 35, 0.5); /* Slightly lighter dark base for inner cards */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease-in-out;
+            min-width: 320px; /* Added min-width to prevent extreme collapsing */
+        }
+        .btn-primary {
+            background-color: #00bcd4; /* Vibrant Teal accent color */
+            color: #1a1a2e; /* Dark text on bright button */
+            font-weight: 700; /* Bolder font weight */
+            padding: 1rem 2.75rem; /* Larger button */
+            border-radius: 9999px;
+            transition: all 0.4s ease-in-out;
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4); /* Teal shadow */
+        }
+        .btn-primary:hover {
+            background-color: #0097a7; /* Darker teal on hover */
+            transform: translateY(-4px); /* More pronounced lift */
+            box-shadow: 0 12px 25px rgba(0, 188, 212, 0.5);
+        }
+        .product-image-container {
+            background-color: rgba(255, 255, 255, 0.05); /* Very subtle translucent background for image */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Main Content Area for the standalone page -->
+    <div class="w-full max-w-7xl mx-auto rounded-3xl overflow-hidden translucent-card p-8 md:p-20 lg:p-28 my-8 md:my-16">
+        <section class="p-4 md:p-12 lg:p-16">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 text-gray-100">Mobile App Development Services</h2>
+
+            <!-- Div Box for Product Image/Showcase -->
+            <div class="product-image-container rounded-2xl p-4 md:p-6 mb-12 md:mb-16 max-w-full md:max-w-4xl mx-auto">
+                <img src="app.png" alt="App Product Showcase" class="w-full h-auto rounded-lg object-cover">
+                <p class="text-center text-gray-400 text-xs md:text-sm mt-3 md:mt-4">Showcasing our innovative mobile app projects.</p>
+            </div>
+
+            <div class="max-w-full md:max-w-4xl mx-auto text-gray-300 space-y-6 md:space-y-10 text-base md:text-lg">
+                <p class="leading-relaxed mb-4 md:mb-8">
+                    At Elite Regent Technologies, we specialize in building intuitive, high-performance, and secure mobile applications for both iOS and Android platforms. Our goal is to transform your ideas into engaging mobile experiences that resonate with your users and drive business growth.
+                </p>
+
+                <!-- Pricing and Maintenance Details -->
+                <div class="text-center text-base md:text-lg mb-6 md:mb-10 space-y-2 md:space-y-4">
+                    <p class="text-teal-400 font-bold text-2xl md:text-3xl">Starting Price: $10,000</p>
+                    <p class="text-teal-400 font-bold text-base md:text-xl">Includes Basic Maintenance</p>
+                    <p class="text-teal-400 font-bold text-base md:text-xl">Frequent Updates Starting from $200</p>
+                </div>
+
+                <p class="leading-relaxed">
+                    From concept and UI/UX design to development, testing, and deployment on app stores, we provide end-to-end mobile app development services. We focus on creating seamless user experiences, robust functionality, and scalable architectures to ensure your app stands out in a competitive market.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-100 mt-8 md:mt-12 mb-4 md:mb-8">Our Expertise Includes:</h3>
+                <ul class="list-disc list-inside space-y-3 md:space-y-5 pl-4 md:pl-8">
+                    <li><strong class="text-teal-400">Native iOS App Development:</strong> Crafting high-quality applications for Apple devices.</li>
+                    <li><strong class="text-teal-400">Native Android App Development:</strong> Building robust and versatile applications for Android devices.</li>
+                    <li><strong class="text-teal-400">Cross-Platform Development:</strong> Efficiently building apps for multiple platforms using frameworks like React Native or Flutter.</li>
+                    <li><strong class="text-teal-400">UI/UX Design:</strong> Creating intuitive and visually appealing user interfaces and experiences.</li>
+                    <li><strong class="text-teal-400">Backend Development & API Integration:</strong> Ensuring seamless data flow and functionality.</li>
+                    <li><strong class="text-teal-400">App Store Optimization (ASO):</strong> Strategies to increase your app's visibility and downloads.</li>
+                    <li><strong class="text-teal-400">App Maintenance & Support:</strong> Comprehensive ongoing support, including **live error tracking**, **quick bug fixes**, and **frequent updates** to ensure long-term success.</li>
+                </ul>
+
+                <p class="leading-relaxed mt-8 md:mt-12">
+                    Partner with Elite Regent Technologies to launch a mobile application that not only meets your business objectives but also delights your users and sets you apart in the mobile ecosystem.
+                </p>
+            </div>
+            <div class="text-center mt-16 md:mt-20">
+                <a href="index.html" class="btn-primary">
+                    Back to Services
+                </a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
