@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Regent Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Darker, sophisticated gradient background */
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem; /* Generous overall padding */
+            color: #e0e0e0; /* Light text for contrast */
+            line-height: 1.7; /* Enhanced readability */
+        }
+        .translucent-container {
+            /* Deeper, more pronounced translucent effect */
+            background-color: rgba(25, 25, 25, 0.6); /* Darker base with transparency */
+            backdrop-filter: blur(25px); /* Even stronger blur */
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle light border */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); /* Deeper, wider shadow */
+            transition: all 0.4s ease-in-out;
+        }
+        .translucent-card {
+            background-color: rgba(35, 35, 35, 0.5); /* Slightly lighter dark base for inner cards */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease-in-out;
+        }
+        .translucent-card:hover {
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+        .hero-section {
+            /* Enhanced: More complex, dynamic background for the hero section */
+            background:
+                linear-gradient(135deg, rgba(0, 188, 212, 0.15) 0%, rgba(26, 26, 46, 0.8) 50%, rgba(22, 33, 62, 0.8) 100%),
+                radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
+                url('https://placehold.co/1600x600/1a1a2e/e0e0e0?text=Digital+Network+Abstract') center center / cover no-repeat;
+            background-blend-mode: overlay, multiply, multiply, normal; /* Blend modes for layered effect */
+            padding: 8rem 6rem; /* Even more generous padding */
+            color: #e0e0e0; /* Light text for clarity */
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            animation: backgroundPan 30s linear infinite alternate; /* Subtle background animation */
+        }
+
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .hero-section::before {
+            display: none; /* Remove previous overlay */
+        }
+        .logo-text {
+            color: #e0e0e0; /* Light text for logo */
+            text-shadow: none;
+        }
+        .logo-image {
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)); /* Stronger drop shadow */
+        }
+        input, textarea {
+            background-color: rgba(255, 255, 255, 0.1); /* Very subtle light for input fields */
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem; /* Increased padding */
+            font-size: 1rem;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #a0a0a0; /* Lighter placeholder text */
+        }
+        .btn-primary {
+            background-color: #00bcd4; /* Vibrant Teal accent color */
+            color: #1a1a2e; /* Dark text on bright button */
+            font-weight: 700; /* Bolder font weight */
+            padding: 1rem 2.75rem; /* Larger button */
+            border-radius: 9999px;
+            transition: all 0.4s ease-in-out;
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4); /* Teal shadow */
+        }
+        .btn-primary:hover {
+            background-color: #0097a7; /* Darker teal on hover */
+            transform: translateY(-4px); /* More pronounced lift */
+            box-shadow: 0 12px 25px rgba(0, 188, 212, 0.5);
+        }
+        .nav-link-style {
+            color: #a0a0a0; /* Lighter gray for nav links */
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.75rem; /* Slightly more rounded nav links */
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link-style:hover {
+            background-color: rgba(255, 255, 255, 0.08); /* Subtle light hover background */
+            color: #00bcd4; /* Teal on hover */
+        }
+
+        /* Page display styles */
+        .page-content {
+            display: none;
+        }
+        .page-content.active {
+            display: block;
+            animation: fadeIn 0.7s ease-out; /* Longer, smoother fade */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="w-full max-w-7xl mx-auto rounded-3xl overflow-hidden translucent-container p-16 md:p-20 lg:p-28 my-16">
+        <header class="flex flex-col md:flex-row items-center justify-between mb-24">
+            <div class="flex items-center space-x-6 mb-10 md:mb-0">
+                <img src="er.png" alt="Elite Regent Technologies Logo" class="h-16 w-16 md:h-20 md:w-20 rounded-full logo-image">
+                <h1 class="text-3xl md:text-4xl font-extrabold logo-text">Elite Regent Technologies</h1>
+            </div>
+            <nav>
+                <ul class="flex flex-wrap justify-center md:justify-end space-x-6 md:space-x-8 text-lg">
+                    <li><a href="#" class="nav-link nav-link-style" data-page="home">Home</a></li>
+                    <li><a href="#service" class="nav-link nav-link-style" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link nav-link-style" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link nav-link-style" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="home-page" class="page-content active">
+            <section id="home" class="hero-section rounded-3xl mb-28">
+                <h2 class="text-6xl md:text-7xl font-extrabold mb-10 leading-tight drop-shadow-lg max-w-3xl">Innovating the Future, Today.</h2>
+                <p class="text-xl md:text-2xl mb-14 max-w-4xl opacity-90">Your trusted partner in cutting-edge technology solutions, driving digital transformation across industries.</p>
+                <button class="btn-primary nav-link" data-page="services">
+                    Explore Our Solutions
+                </button>
+            </section>
+
+            <section class="translucent-card rounded-3xl p-16 mb-28 text-center">
+                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-100 mb-10 leading-tight">
+                    Why Choose Elite Regent Technologies?
+                </h3>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+                    We combine unparalleled expertise with a passion for innovation, delivering bespoke solutions that not only meet your needs but exceed your expectations. Our commitment to quality, client satisfaction, and future-proof technology ensures your success.
+                </p>
+                <button class="btn-primary nav-link" data-page="about">
+                    Learn More About Us
+                </button>
+            </section>
+
+        </div>
+
+        <div id="services-page" class="page-content">
+            <section id="services" class="mb-28">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-20 text-gray-100">Our Core Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <a href="web.html" class="translucent-card rounded-2xl p-10 text-center block cursor-pointer hover:scale-105 hover:shadow-xl">
+    <img src="https://placehold.co/100x100/1a1a2e/00bcd4?text=Website" alt="Website Development Icon" class="mx-auto mb-10 h-28 w-28 opacity-90">
+    <h3 class="text-2xl font-semibold mb-5 text-gray-100">Website Development</h3>
+    <p class="text-gray-300 text-base leading-relaxed opacity-90">Crafting responsive, high-performance websites tailored to your business needs.</p>
+</a>
+
+                    <a href="app.html" class="translucent-card rounded-2xl p-10 text-center block cursor-pointer hover:scale-105 hover:shadow-xl">
+    <img src="https://placehold.co/100x100/1a1a2e/00bcd4?text=Mobile App" alt="App Development Icon" class="mx-auto mb-10 h-28 w-28 opacity-90">
+    <h3 class="text-2xl font-semibold mb-5 text-gray-100">App Development</h3>
+    <p class="text-gray-300 text-base leading-relaxed opacity-90">Building intuitive and powerful mobile applications for iOS and Android.</p>
+</a>
+
+                    <a href="soft.html" class="translucent-card rounded-2xl p-10 text-center block cursor-pointer hover:scale-105 hover:shadow-xl">
+    <img src="https://placehold.co/100x100/1a1a2e/00bcd4?text=Software" alt="Software Development Icon" class="mx-auto mb-10 h-28 w-28 opacity-90">
+    <h3 class="text-2xl font-semibold mb-5 text-gray-100">Software Development</h3>
+    <p class="text-gray-300 text-base leading-relaxed opacity-90">Custom software solutions designed to streamline your operations and boost efficiency.</p>
+</a>
+
+                   <a href="rob.html" class="translucent-card rounded-2xl p-10 text-center block cursor-pointer hover:scale-105 hover:shadow-xl">
+    <img src="https://placehold.co/100x100/1a1a2e/00bcd4?text=Robotics" alt="Robotics Icon" class="mx-auto mb-10 h-28 w-28 opacity-90">
+    <h3 class="text-2xl font-semibold mb-5 text-gray-100">Mid-size Industrial Robotics</h3>
+    <p class="text-gray-300 text-base leading-relaxed opacity-90">Integrating advanced robotic systems to enhance productivity and automation.</p>
+</a>
+                </div>
+            </section>
+        </div>
+
+        <div id="website-development-page" class="page-content">
+            <section class="p-16 translucent-card rounded-3xl mb-20">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-100">Website Development Services</h2>
+
+                <div class="max-w-4xl mx-auto text-gray-300 space-y-10 text-lg">
+                    <p class="leading-relaxed">
+                        At Elite Regent Technologies, we specialize in creating stunning, highly functional, and responsive websites that serve as the digital cornerstone of your business. Whether you need a simple static site, a dynamic e-commerce platform, or a complex web application, our team of expert developers is here to bring your vision to life.
+                    </p>
+
+                    <h3 class="text-3xl font-bold text-gray-100 mt-12 mb-8">Our Expertise Includes:</h3>
+                    <ul class="list-disc list-inside space-y-5 pl-8">
+                        <li><strong class="text-teal-400">Custom Web Design:</strong> Unique, brand-aligned designs that captivate your audience.</li>
+                        <li><strong class="text-teal-400">Responsive Development:</strong> Websites that look and perform flawlessly on any device.</li>
+                        <li><strong class="text-teal-400">E-commerce Solutions:</strong> Secure and scalable online stores to boost your sales.</li>
+                        <li><strong class="text-teal-400">Content Management Systems (CMS):</strong> Easy-to-use platforms like WordPress, Joomla, and custom solutions.</li>
+                        <li><strong class="text-teal-400">Web Application Development:</strong> Building robust and interactive web applications for specific business needs.</li>
+                        <li><strong class="text-teal-400">SEO Optimization:</strong> Ensuring your website ranks high on search engines.</li>
+                        <li><strong class="text-teal-400">Website Maintenance & Support:</strong> Ongoing support to keep your site running smoothly and securely.</li>
+                    </ul>
+
+                    <p class="leading-relaxed mt-12">
+                        We use the latest technologies and best practices to ensure your website is not only visually appealing but also secure, fast, and scalable. Partner with us to establish a powerful online presence that drives growth and engages your customers effectively.
+                    </p>
+                </div>
+                <div class="text-center mt-20">
+                    <button class="btn-primary nav-link" data-page="services">
+                        Back to Services
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div id="about-page" class="page-content">
+            <section id="about" class="mb-28 p-16 translucent-card rounded-3xl">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-100">About Elite Regent Technologies</h2>
+                <p class="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto mb-8">
+                    At Elite Regent Technologies, we are passionate about leveraging cutting-edge technology to solve complex challenges and drive innovation. With a team of dedicated experts, we deliver bespoke solutions across various domains, empowering businesses to thrive in the digital age. Our commitment to excellence and client satisfaction sets us apart.
+                </p>
+
+                <p class="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto mb-12">
+                    We believe in fostering strong, prosperous communities. By offering our high-quality technology services at an accessible and affordable price point, we empower local businesses and individuals alike to embrace digital transformation, spurring innovation and contributing to a thriving, interconnected community.
+                </p>
+
+                <div class="max-w-3xl mx-auto text-center mt-16">
+                    <h3 class="text-3xl font-bold text-gray-100 mb-8">Our Leadership</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <img src="https://placehold.co/120x120/1a1a2e/00bcd4?text=MI" alt="Mohammad Islam" class="rounded-full mx-auto mb-4 h-32 w-32 object-cover border-4 border-teal-500 shadow-lg">
+                            <h4 class="text-xl font-semibold text-gray-100 mb-1">Mohammad Islam</h4>
+                            <p class="text-teal-400 text-sm">Founder</p>
+                        </div>
+                        <div>
+                            <img src="https://placehold.co/120x120/1a1a2e/00bcd4?text=EW" alt="Esha Wahid" class="rounded-full mx-auto mb-4 h-32 w-32 object-cover border-4 border-teal-500 shadow-lg">
+                            <h4 class="text-xl font-semibold text-gray-100 mb-1">Esha Wahid</h4>
+                            <p class="text-teal-400 text-sm">Co-founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-20">
+                    <button class="btn-primary nav-link" data-page="home">
+                        Back to Home
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div id="contact-page" class="page-content">
+            <section id="contact" class="p-16 translucent-card rounded-3xl">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-100">Get in Touch</h2>
+
+                <div class="text-center text-lg mb-16 space-y-4">
+                    <p class="text-gray-300">
+                        For inquiries, feel free to reach out to us:
+                    </p>
+                    <p class="text-teal-400 font-bold text-2xl">
+                        Phone: (807) 357-5113
+                    </p>
+                    <p class="text-teal-400 font-bold text-2xl">
+                        Email: inquiries@eliteregent.ca
+                    </p>
+                </div>
+
+                <form class="max-w-xl mx-auto space-y-10">
+                    <div>
+                        <label for="name" class="block text-gray-300 text-base font-semibold mb-4">Name:</label>
+                        <input type="text" id="name" name="name" class="shadow-md appearance-none border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-teal-400 translucent-card" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-300 text-base font-semibold mb-4">Email:</label>
+                        <input type="email" id="email" name="email" class="shadow-md appearance-none border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-teal-400 translucent-card" placeholder="your@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-300 text-base font-semibold mb-4">Message:</label>
+                        <textarea id="message" name="message" rows="9" class="shadow-md appearance-none border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-teal-400 translucent-card" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="text-center pt-6">
+                        <button type="submit" class="btn-primary">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+                <div class="text-center mt-20">
+                    <button class="btn-primary nav-link" data-page="home">
+                        Back to Home
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <footer class="text-center text-gray-400 text-sm mt-24">
+            <p>&copy; 2025 Elite Regent Technologies. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pages = document.querySelectorAll('.page-content');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const categoryCards = document.querySelectorAll('.category-card');
+
+            // Function to show a specific page
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                const activePage = document.getElementById(pageId + '-page');
+                if (activePage) {
+                    activePage.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+
+            // Handle navigation link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = e.target.dataset.page;
+                    showPage(page);
+                });
+            });
+
+            // Handle category card clicks (specifically for Website Development for now)
+            categoryCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const page = e.currentTarget.dataset.page;
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            });
+
+            // Initially show the home page
+            showPage('home');
+        });
+    </script>
+
+</body>
+</html>
